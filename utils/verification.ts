@@ -7,6 +7,7 @@ import {
 import { bot } from "~/utils/core.ts";
 import { createWelcomeImage } from "~/utils/welcome.ts";
 import {
+	bold,
 	channelMention,
 	formatEmoji,
 	roleMention,
@@ -69,14 +70,18 @@ export async function verifyMember(member: APIGuildMember) {
 					}~! \n\n### Welcome to the community—${
 						formatEmoji("1338171993161334888")
 					}\n\n${
-						formatEmoji("1338180220376846337")
-					} | Don't forget to read da ${
-						channelMention("1320856012902629490")
-					}\n${
-						formatEmoji("1338172092084129833")
-					} | If there's anything needed, mention ${
-						roleMention("1320856011975823466")
-					} ASAP.\n### Happy Chatting~! ${
+						bold(
+							`${
+								formatEmoji("1338180220376846337")
+							} Don't forget to read da ${
+								channelMention("1320856012902629490")
+							}\n${
+								formatEmoji("1338172092084129833")
+							} If there's anything needed, mention ${
+								roleMention("1320856011975823466")
+							} ASAP.`,
+						)
+					}\n### Happy Chatting~! ${
 						formatEmoji("1338172623300857917")
 					}`,
 					image: { url: "attachment://welcome.png" },
